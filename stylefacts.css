@@ -1,0 +1,58 @@
+// Create a new audio element
+var audio = new Audio("./x.mp3");
+audio.autoplay = true;
+audio.muted = true;
+audio.loop = true;
+audio.controls = true;
+
+// Create a new container element for the music controls
+var controlsContainer = document.createElement("div");
+controlsContainer.style.position = "absolute";
+controlsContainer.style.top = "0";
+controlsContainer.style.left = "0";
+controlsContainer.style.zIndex = "1";
+document.body.appendChild(controlsContainer);
+
+// Add the audio element to the container
+controlsContainer.appendChild(audio);
+
+// Array of alien facts
+var alienFacts = [
+  "Aliens are often depicted as having green skin.",
+  "Some people believe that aliens have visited Earth for thousands of years.",
+  "The term 'UFO' stands for 'Unidentified Flying Object'.",
+  "The first recorded UFO sighting was in 1440 BC by an Egyptian scribe.",
+  "The famous 'Roswell Incident' occurred in 1947 in New Mexico, USA.",
+  "The Fermi Paradox questions why, if extraterrestrial life exists, we haven't found any evidence of it yet.",
+  "The SETI Institute searches for signs of extraterrestrial life using radio telescopes.",
+  "The Drake Equation estimates the number of civilizations in the Milky Way galaxy.",
+  "The Kepler Space Telescope has discovered thousands of exoplanets, some of which could potentially harbor life.",
+  "The Wow! Signal was a strong narrowband radio signal received in 1977 that some believe was of extraterrestrial origin."
+];
+
+// Generate a random index for the alien fact
+var randomIndex = Math.floor(Math.random() * alienFacts.length);
+
+// Display the random alien fact on the webpage
+var factElement = document.createElement("p");
+factElement.textContent = alienFacts[randomIndex];
+factElement.style.color = "white";
+factElement.style.fontSize = "24px";
+factElement.style.textAlign = "center";
+factElement.style.position = "absolute";
+factElement.style.top = "50%";
+factElement.style.left = "50%";
+factElement.style.transform = "translate(-50%, -50%)";
+document.body.appendChild(factElement);
+
+// Add a waving alien to the page
+var alienElement = document.createElement("img");
+alienElement.src = "./wavingalien.gif";
+alienElement.alt = "Waving Alien";
+alienElement.style.width = "200px";
+alienElement.style.height = "auto";
+alienElement.style.position = "absolute";
+alienElement.style.bottom = "0";
+alienElement.style.right = "0";
+alienElement.style.animation = "wave 2s infinite";
+document.body.appendChild(alienElement);

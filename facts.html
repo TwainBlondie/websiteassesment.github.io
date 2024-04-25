@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Alien Facts</title>
+  <style>
+    body {
+      background-color: darkolivegreen;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #fact {
+      color: white;
+      font-size: 24px;
+      text-align: center;
+    }
+    #alien {
+      width: 200px;
+      height: auto;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      animation: wave 2s infinite;
+    }
+    #controls {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(10deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Create a new audio element -->
+  <div id="controls">
+    <audio id="audio" src="./x.mp3" autoplay muted loop controls></audio>
+  </div>
+
+  <!-- Display the random alien fact on the webpage -->
+  <p id="fact"></p>
+
+  <!-- Add a waving alien to the page -->
+  <img id="alien" src="./wavingalien.gif" alt="Waving Alien">
+
+  <script>
+    // Array of alien facts
+    var alienFacts = [
+      "Aliens are often depicted as having green skin.",
+      "Some people believe that aliens have visited Earth for thousands of years.",
+      "The term 'UFO' stands for 'Unidentified Flying Object'.",
+      "The first recorded UFO sighting was in 1440 BC by an Egyptian scribe.",
+      "The famous 'Roswell Incident' occurred in 1947 in New Mexico, USA.",
+      "The Fermi Paradox questions why, if extraterrestrial life exists, we haven't found any evidence of it yet.",
+      "The SETI Institute searches for signs of extraterrestrial life using radio telescopes.",
+      "The Drake Equation estimates the number of civilizations in the Milky Way galaxy.",
+      "The Kepler Space Telescope has discovered thousands of exoplanets, some of which could potentially harbor life.",
+      "The Wow! Signal was a strong narrowband radio signal received in 1977 that some believe was of extraterrestrial origin."
+    ];
+
+    // Generate a random index for the alien fact
+    var randomIndex = Math.floor(Math.random() * alienFacts.length);
+
+    // Display the random alien fact on the webpage
+    var factElement = document.getElementById('fact');
+    factElement.textContent = alienFacts[randomIndex];
+  </script>
+</body>
+</html>

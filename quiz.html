@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>Quiz</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class = "header">
+</div>
+<div class="topnav">
+	<a href = "index.html">homepage</a>
+    <a href = "contactus.html">contact us</a>
+	<a href = "ufosightingsandstories.html">ufo sightings and stories</a>
+	<a href = "Quiz.html">Quiz</a>
+    <a href = "gallery.html">Gallery</a>
+	<a href = "Alien Game.html">Game</a>
+	<a href = "facts.html">facts</a>
+	<a href = "blog.html">blog</a>
+</div>
+<head>
+  <title>UFO and Alien Quiz</title>
+  <script>
+  
+    function calculateScore(event) {
+      event.preventDefault();
+      var score = 0;
+      var answers = ['a', 'b', 'a', 'a', 'a'];
+      for (var i = 0; i < answers.length; i++) {
+        var userAnswer = document.querySelector('input[name="q' + (i + 1) + '"]:checked').value;
+        if (userAnswer === answers[i]) {
+          score++;
+        }
+      }
+      var message = 'You scored ' + score + ' out of ' + answers.length + '.';
+      if (score === answers.length) {
+        message += ' Great job!';
+      } else if (score > 0) {
+        message += ' Keep studying!';
+      } else {
+        message += ' Better luck next time.';
+      }
+      document.getElementById('message').innerHTML = message;
+    }
+  </script>
+</head>
+<body>
+<tr>
+	<td align="right"><img id="alien" src="./walk.gif" alt="walking Alien">
+	<tr>
+<tr>
+  <h2>UFO and Alien Quiz</h2>
+  <form onsubmit="calculateScore(event); return false;">
+    <h3>Question 1:</h3>
+    <p>What is the most famous UFO sighting in history?</p>
+    <input type="radio" name="q1" value="a" id="q1a" required>
+    <label for="q1a">The Roswell Incident</label><br>
+    <input type="radio" name="q1" value="b" id="q1b">
+    <label for="q1b">The Phoenix Lights</label><br>
+    <input type="radio" name="q1" value="c" id="q1c">
+    <label for="q1c">The Battle of Los Angeles</label><br>
+    <h3>Question 2:</h3>
+    <p>What is the name of the government agency that investigates UFO sightings?</p>
+    <input type="radio" name="q2" value="a" id="q2a" required>
+    <label for="q2a">The National UFO Reporting Center</label><br>
+    <input type="radio" name="q2" value="b" id="q2b">
+    <label for="q2b">The Federal Bureau of Investigation</label><br>
+    <input type="radio" name="q2" value="c" id="q2c">
+    <label for="q2c">The Central Intelligence Agency</label><br>
+    <h3>Question 3:</h3>
+    <p>What is the name of the famous UFO researcher who founded the Mutual UFO Network?</p>
+    <input type="radio" name="q3" value="a" id="q3a" required>
+    <label for="q3a">Stanton Friedman</label><br>
+    <input type="radio" name="q3" value="b" id="q3b">
+    <label for="q3b">J. Allen Hynek</label><br>
+    <input type="radio" name="q3" value="c" id="q3c">
+    <label for="q3c">Bob Lazar</label><br>
+    <h3>Question 4:</h3>
+    <p>What is the name of the secretive government facility in Nevada where UFOs are allegedly stored and studied?</p>
+    <input type="radio" name="q4" value="a" id="q4a" required>
+    <label for="q4a">Area 51</label><br>
+    <input type="radio" name="q4" value="b" id="q4b">
+    <label for="q4b">The Pentagon</label><br>
+    <input type="radio" name="q4" value="c" id="q4c">
+    <label for="q4c">The White House</label><br>
+    <h3>Question 5:</h3>
+    <p>What is the name of the famous UFO sighting that occurred in Belgium in 1989 and 1990?</p>
+    <input type="radio" name="q5" value="a" id="q5a" required>
+    <label for="q5a">The Belgian Wave</label><br>
+    <input type="radio" name="q5" value="b" id="q5b">
+    <label for="q5b">The Belgian Triangle</label><br>
+    <input type="radio" name="q5" value="c" id="q5c">
+    <label for="q5c">The Belgian Circle</label><br>
+    <input type="submit" value="Submit">
+  </form>
+  <p id="message"></p>
+</body>
+</html>

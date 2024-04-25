@@ -1,0 +1,36 @@
+.header {
+width: 100%;
+height: 200px;
+background-image: url('./banner.png');
+background-color: #050028;
+background-repeat: no-repeat;
+background-size: contain;
+}
+*{
+    box-sizing: border-box;
+    font-family: Arial;
+}
+body{
+    margin: 0;
+    font-family: Arial;
+}
+.topnav{
+    overflow: hidden;
+    background-color: darkolivegreen;
+}
+.topnav a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.topnav a:hover{
+    background-color: darkolivegreen;
+    color: black;
+}
+.footer{
+    background-color: darkolivegreen;
+    padding: 10px;
+}

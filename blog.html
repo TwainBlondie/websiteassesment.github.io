@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class = "header">
+</div>
+<div class="topnav">
+    <a href = "index.html">homepage</a>
+    <a href = "contactus.html">contact us</a>
+	<a href = "ufosightingsandstories.html">ufo sightings and stories</a>
+	<a href = "Quiz.html">Quiz</a>
+    <a href = "gallery.html">Gallery</a>
+	<a href = "Alien Game.html">Game</a>
+	<a href = "facts.html">facts</a>
+	<a href = "blog.html">blog</a>
+
+</div>
+  <title>My Blog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .blog-container {
+      width: 80%;
+      margin: 0 auto;
+    }
+    article {
+      margin-bottom: 20px;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .comments {
+      margin-top: 20px;
+    }
+    .comment {
+      background-color: darkolivegreen;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .comment-form {
+      margin-top: 20px;
+    }
+    .comment-form input,
+    .comment-form textarea {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    .comment-form button {
+      background-color: darkolivegreen;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="blog-container">
+    <article>
+      <h2>My First Post</h2>
+      <p>I love aliens and UFO'S.</p>
+      <div class="comments">
+        <h3>Comments</h3>
+        <div class="comment">
+          <p>i love aliens.</p>
+          <small>Posted by John Doe</small>
+        </div>
+        <div class="comment">
+          <p>Stargate SG1 is my favourite show.</p>
+          <small>Posted by Jane Doe</small>
+        </div>
+      </div>
+      <div class="comment-form">
+        <h3>Leave a Comment</h3>
+        <input type="text" placeholder="Name">
+        <textarea placeholder="Comment"></textarea>
+        <button>Post Comment</button>
+      </div>
+    </article>
+    <article>
+      <h2>My Second Post</h2>
+      <p>Has anyone seen a UFO.</p>
+      <div class="comments">
+        <h3>Comments</h3>
+        <div class="comment">
+          <p>I saw a UFO last night.</p>
+          <small>Posted by John Doe</small>
+        </div>
+        <div class="comment">
+          <p>I'm pretty sure i was abducted last week.</p>
+          <small>Posted by Jane Doe</small>
+        </div>
+      </div>
+      <div class="comment-form">
+        <h3>Leave a Comment</h3>
+        <input type="text" placeholder="Name">
+        <textarea placeholder="Comment"></textarea>
+        <button>Post Comment</button>
+      </div>
+    </article>
+  </div>
+  <script>
+    // Add event listener to comment form buttons
+    var commentForms = document.querySelectorAll(".comment-form");
+    for (var i = 0; i < commentForms.length; i++) {
+      var form = commentForms[i];
+      var button = form.querySelector("button");
+      button.addEventListener("click", function(event) {
+        event.preventDefault();
+        var nameInput = form.querySelector("input");
+        var commentInput = form.querySelector("textarea");
+        var name = nameInput.value;
+        var comment = commentInput.value;
+        if (name && comment) {
+          var commentElement = document.createElement("div");
+          commentElement.classList.add("comment");
+          commentElement.innerHTML = "<p>" + comment + "</p><small>Posted by " + name + "</small>";
+          var commentsElement = form.previousElementSibling;
+          commentsElement.appendChild(commentElement);
+          nameInput.value = "";
+          commentInput.value = "";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

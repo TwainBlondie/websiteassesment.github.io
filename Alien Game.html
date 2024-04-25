@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>Maps</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+</head>
+<html lang="en">
+<div class = "header">
+</div>
+<div class="topnav">
+	<a href = "index.html">homepage</a>
+    <a href = "contactus.html">contact us</a>
+	<a href = "ufosightingsandstories.html">ufo sightings and stories</a>
+	<a href = "Quiz.html">Quiz</a>
+    <a href = "gallery.html">Gallery</a>
+	<a href = "Alien Game.html">Game</a>
+	<a href = "facts.html">facts</a>
+	<a href = "blog.html">blog</a>
+</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFO Alien Game</title>
+    <style>
+	body {
+      background-color: darkolivegreen;
+    }
+        #game-container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+        }
+        #ufo {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url('ufogame.jpg');
+            background-size: contain;
+        }
+        #alien {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url('smile.jpg');
+            background-size: contain;
+        }
+        #instructions {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="ufo"></div>
+        <div id="alien"></div>
+    </div>
+    <div id="instructions">
+        <h3>Instructions:</h3>
+        <p>Use the arrow keys to move the UFO and catch the alien. When the UFO collides with the alien, an alert will appear, and the alien will be moved to a new random position.</p>
+    </div>
+
+    <script>
+        const ufo = document.getElementById('ufo');
+        const alien = document.getElementById('alien');
+        const gameContainer = document.getElementById('game-container');
+
+        // Set initial positions for UFO and alien
+        ufo.style.top = '0px';
+        ufo.style.left = '0px';
+        alien.style.top = Math.floor(Math.random() * 400) + 'px';
+        alien.style.left = Math.floor(Math.random() * 400) + 'px';
+
+        // Add event listener for arrow keys to move UFO
+        document.addEventListener('keydown', (event) => {
+            const key = event.key;
+            const currentTop = parseInt(ufo.style.top);
+            const currentLeft = parseInt(ufo.style.left);
+
+            if (key === 'ArrowUp' && currentTop > 0) {
+                ufo.style.top = currentTop - 10 + 'px';
+            } else if (key === 'ArrowDown' && currentTop < 400) {
+                ufo.style.top = currentTop + 10 + 'px';
+            } else if (key === 'ArrowLeft' && currentLeft > 0) {
+                ufo.style.left = currentLeft - 10 + 'px';
+            } else if (key === 'ArrowRight' && currentLeft < 400) {
+                ufo.style.left = currentLeft + 10 + 'px';
+            }
+
+            // Check for collision with alien
+            if (
+                Math.abs(parseInt(ufo.style.top) - parseInt(alien.style.top)) <= 100 &&
+                Math.abs(parseInt(ufo.style.left) - parseInt(alien.style.left)) <= 100
+            ) {
+                alert('Collision detected! UFO caught the alien!');
+                // Reset alien position
+                alien.style.top = Math.floor(Math.random() * 400) + 'px';
+                alien.style.left = Math.floor(Math.random() * 400) + 'px';
+            }
+        });
+    </script>
+</body>
+</html>
